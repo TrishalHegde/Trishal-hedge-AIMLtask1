@@ -12,10 +12,16 @@ print(df.isnull().sum())
 df['Age']=df['Age'].fillna(df['Age'].median())
 df['Embarked']=df['Embarked'].fillna(df['Embarked'].mode()[0])
 
-# Drop the 'Cabin' column
+
 df=df.drop('Cabin', axis=1)
 
-# Verify that missing values are handled
+
 print(df.isnull().sum())
+
+
+df = pd.get_dummies(df, columns=['Sex', 'Embarked'])
+
+
+print(df.head())
 
 
