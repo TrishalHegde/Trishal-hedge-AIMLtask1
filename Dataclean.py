@@ -24,4 +24,12 @@ df = pd.get_dummies(df, columns=['Sex', 'Embarked'])
 
 print(df.head())
 
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+numerical_features = ['Age', 'Fare']
+df[numerical_features] = scaler.fit_transform(df[numerical_features])
+
+print(df[numerical_features].head())
+
 
